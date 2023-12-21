@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-25">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input {
+        width: 60%;
+        padding: 5px;
+        text-transform: capitalize;
+    }
+</style>
+
+<body>
+    <div class="shipdata" style=" width: 60%; margin: 2em auto; text-transform: capitalize;">
+        <label for="capacity">rascueship capacity</label><br>
+        <input type="text" id="capacity" placeholder=" enter the Rascueship capacity" /> <br> <br>
+        <label for="child">childern on taitanic</label>
+        <br>
+        <input type="number" id="child" placeholder=" number of childern on taitanic"> <br> <br>
+        <label for="woman">woman on taitanic</label><br>
+        <input type="number" id="woman" placeholder=" number of woman on taitanic"> <br> <br>
+        <label for="man">man on taitanic</label><br>
+        <input type="number" id="man" placeholder=" number of man on taitanic"> <br> <br>
+        <button onclick="calculate()">calculate </button>
+        <br><br><br>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+    </div>
+
+
+    <script>
+
+        function calculate() {
+            let capacity_ofRescueShip = +document.getElementById("capacity").value;
+            let menOnTaitanic = +document.getElementById("man").value;
+            let womenOnTaitanic = +document.getElementById("woman").value;
+            let childOnTaitanic = +document.getElementById("child").value;
+            let Saved_child = 0;
+            let Saved_man = 0;
+            let Saved_woman = 0;
+            let t = 0;
+                       for (; t < capacity_ofRescueShip ;) {
+                if (menOnTaitanic > 0 && capacity_ofRescueShip - t >= 1) {
+                    menOnTaitanic -= 1;
+                    if (menOnTaitanic >= 0) {
+                        Saved_man += 1;
+                        t += 1
+                    }
+                }
+                if (childOnTaitanic > 0 && capacity_ofRescueShip - t >= 4) {
+                    childOnTaitanic -= 4;
+                    if (childOnTaitanic >= 0) {
+                        Saved_child += 4;
+                        t += 4
+                    }
+                } if (womenOnTaitanic > 0 && capacity_ofRescueShip - t >= 1) {
+                    womenOnTaitanic -= 1;
+                    if (womenOnTaitanic >= 0) {
+                        Saved_woman += 1;
+                        t += 1
+                    }
+                }
+                if (childOnTaitanic > 0 && capacity_ofRescueShip - t >= 4) {
+                    childOnTaitanic -= 4;
+                    if (childOnTaitanic >= 0) {
+                        Saved_child += 4;
+                        t += 4
+                    }
+                }
+                if (womenOnTaitanic > 0 && capacity_ofRescueShip - t >= 1) {
+                    womenOnTaitanic -= 1;
+                    if (womenOnTaitanic >= 0) {
+                        Saved_woman += 1;
+                        t += 1
+                    }
+                }
+                if (childOnTaitanic > 0 && capacity_ofRescueShip - t >= 4) {
+                    childOnTaitanic -= 4;
+                    if (childOnTaitanic >= 0) {
+                        Saved_child += 4;
+                        t += 4
+                    }
+                }
+            }
+            document.getElementById("demo1").innerText = "rescue ship capacity  is " + t;
+            document.getElementById("demo2").innerText = "total saved childran  is " + Saved_child;
+            document.getElementById("demo3").innerText = "total saved woman is " + Saved_woman;
+            document.getElementById("demo4").innerText = "total saved man is  " + Saved_man;
+            // optional==========================>
+            console.log("total saved is " + t)
+            console.log("saved child is " + Saved_child)
+            console.log("saved woman is " + Saved_woman)
+            console.log("saved man is " + Saved_man)
+        }
+    </script>
+</body>
+
+</html>
